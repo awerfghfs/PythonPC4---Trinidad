@@ -1,0 +1,19 @@
+def obtener_precio_bitcoin():
+    precio_bitcoin = 65395.1635
+    return precio_bitcoin
+
+def calcular_costo_bitcoins(bitcoins):
+    precio_bitcoin = obtener_precio_bitcoin()
+    costo_en_usd = bitcoins * precio_bitcoin
+    return costo_en_usd
+
+def main():
+    try:
+        cantidad_bitcoins = float(input("ingrese la cantidad de bitcoins que pueda: "))
+        costo_en_usd = calcular_costo_bitcoins(cantidad_bitcoins)
+        print(f"El costo actual de {cantidad_bitcoins:,.4f} Bitcoins es ${costo_en_usd:,.4f}")
+    except ValueError:
+        print("error: Ingrese un número válido de bitcoins.")
+
+if __name__ == "__main__":
+    main()
