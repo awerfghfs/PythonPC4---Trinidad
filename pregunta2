@@ -1,0 +1,28 @@
+import random
+from pyfiglet import Figlet
+
+def main():
+    # Instanciar el objeto Figlet
+    figlet = Figlet()
+
+    fuentes_disponibles = figlet.getFonts()
+    fuente_seleccionada = input("Ingrese el nombre de la fuente a utilizar o presione Enter ):\n")
+ # Si no se ingresa ninguna fuente, seleccionar una al azar
+    if not fuente_seleccionada:
+        fuente_seleccionada = random.choice(fuentes_disponibles)
+    else:
+        # Validar si la fuente ingresada por el usuario está disponible
+        while fuente_seleccionada not in fuentes_disponibles:
+            print("La fuente ingresada no está disponible, elija una fuente de la siguiente lista:")
+            print(fuentes_disponibles)
+            fuente_seleccionada = input()
+
+    texto_imprimir = input("Ingrese el texto que desea imprimir:\n")
+
+    #  la fuente seleccionada
+    figlet.setFont(font=fuente_seleccionada)
+
+    print(figlet.renderText(texto_imprimir))
+
+if __name__ == "__main__":
+    main()
